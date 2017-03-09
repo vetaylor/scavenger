@@ -1,0 +1,7 @@
+# Python-PostgreSQL Database Adapter
+psycopg2==2.7
+
+# Time zones support
+pytz==2016.10
+
+# More requirements go here
