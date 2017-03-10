@@ -49,7 +49,8 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-
+    #Django REST Framework
+    'rest_framework',
 ]
 
 # Apps specific for this project go here.
