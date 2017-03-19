@@ -49,14 +49,12 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    #Django REST Framework
-    'rest_framework',
+    'rest_framework', # Django REST Framework
 ]
 
 # Apps specific for this project go here.
 LOCAL_APPS = [
-    # custom users app
-    # Your stuff: custom apps go here
+    'scavenger.locations',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
