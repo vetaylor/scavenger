@@ -3,7 +3,6 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
@@ -15,22 +14,23 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Building',
+            name='Group',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('number', models.CharField(max_length=4)),
                 ('name', models.CharField(max_length=100)),
-                ('alternative_name', models.CharField(blank=True, max_length=100)),
-                ('description', models.TextField(blank=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Room',
+            name='Person',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('number', models.CharField(max_length=5)),
-                ('name', models.CharField(blank=True, max_length=100)),
-                ('building', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='locations.Building')),
+                ('first_name', models.CharField(max_length=50)),
+                ('last_name', models.CharField(max_length=50)),
+                ('prefix', models.CharField(blank=True, max_length=3)),
+                ('groups', models.ManyToManyField(to='people.Group')),
             ],
+            options={
+                'verbose_name_plural': 'people',
+            },
         ),
     ]

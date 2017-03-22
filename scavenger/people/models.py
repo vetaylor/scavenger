@@ -1,5 +1,12 @@
 from django.db import models
 
+class Group(models.Model):
+    """Represents a group."""
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
 class Person(models.Model):
     """Represents a person."""
     first_name = models.CharField(max_length=50)
@@ -16,10 +23,3 @@ class Person(models.Model):
 
     class Meta:
         verbose_name_plural = "people"
-
-class Group(models.Model):
-    """Represents a group."""
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
