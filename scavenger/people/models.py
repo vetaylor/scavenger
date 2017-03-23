@@ -15,7 +15,7 @@ class Person(models.Model):
     groups = models.ManyToManyField(Group)
 
     def __str__(self):
-        if self.prefix:
+        if self.prefix is not None:
             return '{}. {} {}'.format(self.prefix, self.first_name,
                 self.last_name)
         else:
