@@ -14,10 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
+    url(r'^locations/', include('scavenger.locations.urls', namespace='locations')),
+    url(r'^people/', include('scavenger.people.urls', namespace='people')),
 ]
