@@ -20,6 +20,5 @@ from django.contrib import admin
 urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
-    url(r'^locations/', include('scavenger.locations.urls', namespace='locations')),
-    url(r'^people/', include('scavenger.people.urls', namespace='people')),
+    url(r'', include('scavenger.api.urls', namespace='api')),
 ]
