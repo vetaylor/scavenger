@@ -1,4 +1,5 @@
 from rest_framework import routers
+
 from .views import BuildingViewSet, RoomViewSet, GroupViewSet, PersonViewSet
 
 router = routers.DefaultRouter()

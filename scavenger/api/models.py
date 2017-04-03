@@ -39,8 +39,7 @@ class Person(models.Model):
 
     def __str__(self):
         if self.prefix is not None:
-            return '{}. {} {}'.format(self.prefix, self.first_name,
-                self.last_name)
+            return '{}. {} {}'.format(self.prefix, self.first_name, self.last_name)
         else:
             return '{} {}'.format(self.first_name, self.last_name)
 

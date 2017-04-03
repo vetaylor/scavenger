@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from .models import Building, Room, Group, Person
 
 class BuildingSerializer(serializers.ModelSerializer):
@@ -16,7 +17,7 @@ class RoomSerializer(serializers.ModelSerializer):
 class GroupSerializer(serializers.ModelSerializer):
     """Serializer for Group model."""
     class Meta:
-        model =  Group
+        model = Group
         fields = ("name",)
 
 class PersonSerializer(serializers.ModelSerializer):

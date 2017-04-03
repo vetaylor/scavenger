@@ -1,3 +1,9 @@
 from django.test import TestCase
 
-# Create your tests here.
+from rest_framework.test import APIRequestFactory
+
+factory = APIRequestFactory()
+request = factory.post(
+    '/buildings/', {'number': '4',
+                    'name': 'Hal Marcus College of Science and Engineering'},
+    format='json')
