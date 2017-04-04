@@ -7,5 +7,3 @@ router.register(prefix='buildings', viewset=BuildingViewSet)
 router.register(prefix='rooms', viewset=RoomViewSet)
 router.register(prefix='groups', viewset=GroupViewSet)
 router.register(prefix='people', viewset=PersonViewSet)
-
-urlpatterns = router.urls
