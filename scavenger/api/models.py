@@ -11,7 +11,7 @@ class Building(models.Model):
     description = models.TextField(blank=True)
 
     def __str__(self):
-        return self.number
+        return '{}'.format(self.number)
 
 
 class Room(models.Model):
@@ -29,9 +29,12 @@ class Room(models.Model):
 class Group(models.Model):
     """Represents a group."""
     name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    location = models.ForeignKey(Building, blank=True, null=True,
+                                 on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return '{}'.format(self.name)
 
 
 class Person(models.Model):
@@ -39,7 +42,10 @@ class Person(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     prefix = models.CharField(max_length=3, blank=True)
+    description = models.TextField(blank=True)
     groups = models.ManyToManyField(Group)
+    # 🤔 What if a given person doesn't belong to a room, but to a building?
+    location = models.ForeignKey(Room, on_delete=models.CASCADE)
 
     def __str__(self):
         if self.prefix is not None:
