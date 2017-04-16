@@ -14,18 +14,19 @@ class RoomSerializer(serializers.ModelSerializer):
     """Serializer for Room model."""
     class Meta:
         model = Room
-        fields = ("building", "number", "name")
+        fields = ("building", "number", "name", "description")
 
 
 class GroupSerializer(serializers.ModelSerializer):
     """Serializer for Group model."""
     class Meta:
         model = Group
-        fields = ("name",)
+        fields = ("name", "description", "location")
 
 
 class PersonSerializer(serializers.ModelSerializer):
     """Serializer for Person model."""
     class Meta:
         model = Person
-        fields = ("first_name", "last_name", "prefix", "groups")
+        fields = ("first_name", "last_name", "prefix", "description", "groups",
+                  "location")
