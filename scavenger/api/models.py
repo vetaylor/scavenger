@@ -30,7 +30,7 @@ class Group(models.Model):
     """Represents a group."""
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
-    location = models.ForeignKey(Building, blank=True, null=True,
+    location = models.ForeignKey(Room, blank=True, null=True,
                                  on_delete=models.CASCADE)
 
     def __str__(self):
@@ -43,16 +43,17 @@ class Person(models.Model):
     last_name = models.CharField(max_length=50)
     prefix = models.CharField(max_length=3, blank=True)
     description = models.TextField(blank=True)
-    groups = models.ManyToManyField(Group)
+    groups = models.ManyToManyField(Group, blank=True)
     # 🤔 What if a given person doesn't belong to a room, but to a building?
-    location = models.ForeignKey(Room, on_delete=models.CASCADE)
+    location = models.ForeignKey(Room, blank=True, null=True,
+                                 on_delete=models.CASCADE)
 
     def __str__(self):
-        if self.prefix is not None:
+        if self.prefix is '':
+            return '{} {}'.format(self.first_name, self.last_name)
+        else:
             return '{}. {} {}'.format(self.prefix, self.first_name,
                                       self.last_name)
-        else:
-            return '{} {}'.format(self.first_name, self.last_name)
 
     class Meta:
         verbose_name_plural = "people"
