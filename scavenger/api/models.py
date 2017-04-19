@@ -18,6 +18,7 @@ class Room(models.Model):
     """Represents a single room in a Building."""
     building = models.ForeignKey(Building, on_delete=models.CASCADE)
     number = models.CharField(max_length=5)
+    floor = models.CharField(max_length=2)
     name = models.CharField(max_length=100, blank=True)
     description = models.TextField(blank=True)
     # 🤔 Should I include a room_type (classroom, lab, office, etc.) attribute?

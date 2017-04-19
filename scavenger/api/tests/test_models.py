@@ -20,7 +20,7 @@ class RoomModelTest(TestCase):
         self.building = Building(number='22', name='University Commons')
 
     def test_string_representation(self):
-        room = Room(building=self.building, number='255',
+        room = Room(building=self.building, number='255', floor='2',
                     name='Nautilus Chamber',
                     description='Large meeting room')
         self.assertEqual(str(room), '22/255')
@@ -32,7 +32,7 @@ class GroupModelTest(TestCase):
     def setUp(self):
         self.building = Building(number='4',
                                  name='College of Science and Engineering')
-        self.room = Room(building=self.building, number='223')
+        self.room = Room(building=self.building, number='223', floor='2')
 
     def test_string_representation(self):
         group = Group(name='Department of Computer Science',
@@ -47,7 +47,7 @@ class PersonModelTest(TestCase):
     def setUp(self):
         self.building = Building(number='4',
                                  name='College of Science and Engineering')
-        self.room = Room(building=self.building, number='223')
+        self.room = Room(building=self.building, number='223', floor='2')
 
     def test_string_representation_with_prefix(self):
         person = Person(first_name='Bernd', last_name='Owsnicki-Klewe',

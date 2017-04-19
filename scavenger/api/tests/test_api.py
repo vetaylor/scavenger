@@ -98,7 +98,7 @@ class RoomAPITest(APITestCase):
         """Test the api can create a Room."""
         view = RoomViewSet.as_view({'post': 'create'})
         building_pk = Building.objects.get().id
-        data = {'building': building_pk, 'number': '247',
+        data = {'building': building_pk, 'number': '247', 'floor': '2',
                 'name': 'Fraternity & Sorority Life'}
         url = reverse('room-list')
         request = self.factory.post(url, data, format='json')
@@ -122,7 +122,7 @@ class RoomAPITest(APITestCase):
     def test_room_detail(self):
         """Test the api can retrieve a given Room."""
         building = Building.objects.get()
-        room = Room.objects.create(building=building, number='239',
+        room = Room.objects.create(building=building, number='239', floor='2',
                                    name='Campus Activity Board')
 
         view = RoomViewSet.as_view({'get': 'retrieve'})
@@ -136,7 +136,7 @@ class RoomAPITest(APITestCase):
     def test_update_room(self):
         """Test the api can update a Room."""
         building = Building.objects.get()
-        room = Room.objects.create(building=building, number='239',
+        room = Room.objects.create(building=building, number='239', floor='2',
                                    name='Campus Activity Board')
 
         view = RoomViewSet.as_view({'put': 'update'})
@@ -152,7 +152,7 @@ class RoomAPITest(APITestCase):
     def test_delete_room(self):
         """Test the api can delete a Room."""
         building = Building.objects.get()
-        room = Room.objects.create(building=building, number='239',
+        room = Room.objects.create(building=building, number='239', floor='2',
                                    name='Campus Activity Board')
 
         view = RoomViewSet.as_view({'delete': 'destroy'})
