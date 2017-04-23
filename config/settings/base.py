@@ -49,12 +49,13 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'rest_framework', # Django REST Framework
+    'rest_framework',  # Django REST Framework
 ]
 
 # Apps specific for this project go here.
 LOCAL_APPS = [
     'scavenger.api',
+    'scavenger.users'
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -233,6 +234,9 @@ AUTHENTICATION_BACKENDS = [
 
 # Location of root django.contrib.admin URL, use {% url 'admin:index' %}
 ADMIN_URL = r'^admin/'
+
+# Use custom User model defined in users app
+AUTH_USER_MODEL = 'users.User'
 
 # DJANGO REST FRAMEWORK
 # ------------------------------------------------------------------------------
