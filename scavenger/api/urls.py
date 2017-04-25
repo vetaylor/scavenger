@@ -2,8 +2,8 @@ from rest_framework import routers
 
 from .views import BuildingViewSet, RoomViewSet, GroupViewSet, PersonViewSet
 
-router = routers.DefaultRouter()
-router.register(prefix='buildings', viewset=BuildingViewSet)
-router.register(prefix='rooms', viewset=RoomViewSet)
-router.register(prefix='groups', viewset=GroupViewSet)
-router.register(prefix='people', viewset=PersonViewSet)
+api_router = routers.DefaultRouter()
+api_router.register(prefix='buildings', viewset=BuildingViewSet)
+api_router.register(prefix='rooms', viewset=RoomViewSet)
+api_router.register(prefix='groups', viewset=GroupViewSet)
+api_router.register(prefix='people', viewset=PersonViewSet)

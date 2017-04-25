@@ -17,10 +17,12 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from scavenger.api.urls import router
+from scavenger.api.urls import api_router
+from scavenger.users.urls import users_router
 
 urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
-    url(r'', include(router.urls)),
+    url(r'^api/v1/', include(api_router.urls)),
+    url(r'^users/', include(users_router.urls)),
 ]

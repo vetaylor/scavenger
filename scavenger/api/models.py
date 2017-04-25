@@ -58,4 +58,4 @@ class Person(models.Model):
                                       self.last_name)
 
     class Meta:
-        verbose_name_plural = "people"
+        verbose_name_plural = 'people'
