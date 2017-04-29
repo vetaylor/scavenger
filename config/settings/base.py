@@ -50,6 +50,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',  # Django REST Framework
+    'storages',  # django-storages
 ]
 
 # Apps specific for this project go here.

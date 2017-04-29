@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, \
 
 
 class UserManager(BaseUserManager):
-    """ """
+    """Manager for custom user model."""
 
     def create_user(self, email, password, **kwargs):
         if not email:
@@ -26,7 +26,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    """ """
+    """Custom user model."""
 
     email = models.EmailField(unique=True)
 
@@ -43,6 +43,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
+    CASE_INSENSITIVE_FIELDS = ['email']
+
     def __str__(self):
         return '{}'.format(self.email)
 
@@ -51,3 +53,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         return '{}'.format(self.first_name)
+
+    def is_superuser(self):
+        return self.is_staff
+
+    def get_display_name(self):
+        # 🤓 Ex: If email is 'abc1@students.uwf.edu', display name is 'abc1'
+        return self.email.split('@')[0]
